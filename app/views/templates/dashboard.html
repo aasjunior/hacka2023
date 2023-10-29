@@ -2,6 +2,14 @@
 <div class="wrapper row">
     {{ sidebar() | safe }}
     <main class="w-100">
+        <header class="header row space-between w-auto m-30 mt-30">
+        <h1 class="title">Dashboard Overview</h1>
+        <form class="busca" action="">
+            <img class="search-icon" src="{{ url_for('static', filename='imgs/icons/search.svg') }}" alt="Search Icon">
+            <input class="search lbl-white" type="search" placeholder="Pesquisar">
+            <img class="icon-micro" src="{{ url_for('static', filename='imgs/icons/microphone.svg') }}" alt="Search Icon">
+        </form>
+    </header>
         <section class="dashboard m-30 mb-30">    
             <section class="welcome-card row space-between vertical-center m-30">
                 <div class="col p-inline-20">
@@ -13,9 +21,27 @@
                     <img src="{{ url_for('static', filename='imgs/nya.jpg') }}" alt="Nya" class="nyaFig">
                 </div>
             </section>
+            <section id="monthly-record" class="card">
+                <input type="hidden" id="taxaOcorrencias" value="{{ mensal.taxa_ocorrencias|tojson }}">
+                <input type="hidden" id="taxaConcientizacao" value="{{ mensal.taxa_concientizacao|tojson }}">
+                <div class="row space-between">
+                    <h2 class="title">Ocorrências x Concientização</h2>
+                    <div class="row">
+                        <h2 class="title mr-20">Filtrar por:</h2>
+                        <select name="lbl_mes" id="lbl_mes">
+                            <option value="Outubro">Outubro</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="g-monthly" class="graph mt-30"></div>
+            </section>
+            <section id="daily-record" class="card col relative">
+                <h2 class="title">Indice Mensal por Departamento</h2>
+                <div id="g-daily" class="mt-30 relative"></div>
+            </section>
         </section>
     </main>
 </div>
 
-<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}">monthlyChart()</script>
 {% include 'blades/footer.html' %}

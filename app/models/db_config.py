@@ -21,3 +21,4 @@ class DBConnect:
             raise Exception("Não foi possível estabelecer conexão com o MongoDB: ", err)
         
         self.db = self.client[db_name]
+        self.collection = self.db[collection_name]

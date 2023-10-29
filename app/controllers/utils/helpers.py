@@ -1,24 +1,32 @@
-import cssmin
+from datetime import datetime
+import pandas as pd
 
-def minify_css():
-    css_files = [
-        'views/static/css/global.css',
-        'views/static/css/custom.css',
-        'views/static/css/progress-bar.css',
-        'views/static/css/sidebar.css',
-        'views/static/css/responsive.css'
-    ]
-    combined_css = ''
+def consultar_ocorrencias_mensal(db):
+    # Data e hora atuais
+    agora = datetime.now()
 
-    for file in css_files:
-        with open(file, 'r') as f:
-            css_content = f.read()
-            combined_css += css_content
+    # Inicializar contadores
+    taxa_ocorrencias = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 12, 11, 6]
+    taxa_concientizacao = [10, 5, 3, 8, 6, 4, 11, 9, 7, 2, 12, 1, 6]
 
+    inicio_mes = datetime(agora.year, agora.month, 1)
+    fim_mes = datetime(agora.year + (agora.month // 12), (agora.month % 12) + 1, 1)
 
-    minified_css = cssmin(combined_css)
-    
-    output_file = 'views/static/css/styles.min.css'
+    semanas_mes = pd.date_range(start=inicio_mes, end=fim_mes, freq='W')
 
-    with open(output_file, 'w') as f:
-        f.write(minified_css)
+    # for semana in semanas_mes:
+    #     inicio_semana = semana
+    #     fim_semana = semana + pd.DateOffset(days=6)
+
+    #     total_ocorrencia = db.Ocurrency.count_documents({})
+    #     total_concientizados = db.Ocurrency.count_documents({"concluded": True, "data_registro": {"$gte": inicio_semana, "$lte": fim_semana}})
+    #     print(f'\n\nTOTAL OCORRENCIAS: {total_ocorrencia}\n\n')
+    #     print(f'\n\nTOTAL CONCIENTIZADOS: {total_concientizados}\n\n')
+    #     print(f'\n\nFIM DE SEMANA: {fim_semana}\n\n')
+    #     taxa_ocorrencias.append(total_ocorrencia)
+    #     taxa_concientizacao.append(total_concientizados)
+
+    return {
+        "taxa_ocorrencias": taxa_ocorrencias,
+        "taxa_concientizacao": taxa_concientizacao,
+    }

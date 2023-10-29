@@ -4,6 +4,8 @@ let colors = {
     Marketing: "72B3FF",
     Comunicacao: "#3FBDF1",
     Outros: "#8195A8",
+    TaxaOcorrencias: "#72B3FF",
+    TaxaConcientizacao: "#FFFFFF"
   };
   var mesesAno = [
     "Janeiro",
@@ -23,13 +25,11 @@ let colors = {
   var monthly_chart;
   
   if (document.querySelector(".dashboard")) {
-    var tecnologia = parseInt(document.getElementById("tecnologia").value) ?? null;
-    var marketing = parseInt(document.getElementById("bom").value) ?? null;
-    var sem_resposta =
-      parseInt(document.getElementById("sem_resposta").value) ?? null;
+    var taxaOcorrencias = parseInt(document.getElementById("taxaOcorrencias").value) ?? null;
+    var taxaConcientizacao = parseInt(document.getElementById("taxaConcientizacao").value) ?? null;
     var mesAtual = new Date().getMonth() ?? null;
-    
-    
+  }
+    /*
     var datatecnologia = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 12];
     var dataBom = [10, 5, 3, 8, 6, 4, 11, 9, 7, 2, 12];
     var dataSemResposta = [4, 2, 1, 6, 3, 5, 2, 4, 1, 6, 5];
@@ -47,28 +47,16 @@ let colors = {
     monthlyChart();
   }
   
-  if (document.querySelector(".patient-card_dash")) {
-    const weight_data =
-      parseFloat(document.getElementById("weight_data").value) ?? null;
-    const sleep_data =
-      parseFloat(document.getElementById("sleep_data").value) ?? null;
-    const health_data =
-      parseFloat(document.getElementById("health_data").value) ?? null;
-  
-    weight_chart(weight_data);
-    sleep_chart(sleep_data);
-    health_chart(health_data);
-  }
-  
-  function dailyRecord(tecnologia, bom, sem_resposta) {
+  */
+  function dailyRecord(tecnologia, marketing, Comunicação, outros) {
     const options = {
       chart: {
         type: "donut",
         height: "90%",
       },
-      series: [tecnologia, bom, sem_resposta],
-      colors: [colors["tecnologia"], colors["Bom"], colors["Sem_resposta"]],
-      labels: ["Humor: tecnologia", "Humor: Bom", "Sem resposta"],
+      series: [tecnologia, marketing, Comunicação, outros],
+      colors: [colors["Tecnologia"], colors["Marketing"], colors["Comunicacao"], colors["Outros"]],
+      labels: ["Tecnologia", "Marketing", "Comunicação", "Outros"],
       legend: {},
       plotOptions: {
         pie: {
@@ -108,77 +96,8 @@ let colors = {
     );
     dailyRecord_chart.render();
   }
-  
-  function annualRecord(datatecnologia, dataBom, dataSemResposta) {
-    // Cria um array com os nomes dos meses do ano
-    var meses = [];
-  
-    for (var i = mesAtual - 11; i <= mesAtual; i++) {
-      var mes = (i < 0 ? 12 + i : i) % 12; // Ajusta o índice para garantir um valor entre 0 e 11
-      meses.push(mesesAno[mes].substr(0, 3));
-    }
-  
-    // Define o intervalo do eixo X para exibir os meses do ano
-    var xaxisRange = {
-      min: new Date().getFullYear() - 1 + "-" + (mesAtual + 1) + "-01",
-      max: new Date().getFullYear() + "-" + (mesAtual + 1) + "-01",
-    };
-  
-    // Dados iniciais do gráfico
-    var initialData = datatecnologia;
-    var initialColor = colors["tecnologia"];
-  
-    var line_options = {
-      series: [
-        {
-          data: initialData,
-        },
-      ],
-      chart: {
-        id: "line-chart",
-        height: 350,
-        type: "line",
-        animations: {
-          enabled: true,
-          easing: "linear",
-          dynamicAnimation: {
-            speed: 1000,
-          },
-        },
-        toolbar: {
-          show: false,
-        },
-        zoom: {
-          enabled: false,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-        colors: [initialColor],
-      },
-      markers: {
-        size: 0,
-      },
-      xaxis: {
-        type: "category",
-        categories: meses,
-      },
-      yaxis: {
-        max: 12,
-      },
-      legend: {
-        show: false,
-      },
-    };
-    line_chart = new ApexCharts(
-      document.querySelector("#g-annual"),
-      line_options
-    );
-    line_chart.render();
-  }
+
+  dailyRecord(25, 30, 22, 11)
   
   // Filtrar o gráfico com base na label selecionada
   function filterChart(label) {
@@ -207,37 +126,25 @@ let colors = {
   }
 
   function monthlyChart() {
-    var dataTecnologia = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 12, 11, 6];
-    var dataMarketing = [10, 5, 3, 8, 6, 4, 11, 9, 7, 2, 12, 1, 6];
-    var dataComunicacao = [4, 2, 1, 6, 3, 5, 2, 4, 1, 6, 5, 3, 2];
-    var dataOutros = [7, 3, 2, 6, 3, 5, 2, 4, 11, 6, 5, 13, 12];
+    var taxaOcorrencias = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 12, 11];
+    var taxaConcientizacao = [10, 5, 3, 8, 6, 4, 11, 9, 7, 2, 12, 1];
     var dataTime = generateDateRange("2023-10-01", "2023-10-28");
   
     var colors = {
-      Tecnologia: "#526BDB",
-      Marketing: "72B3FF",
-      Comunicacao: "#3FBDF1",
-      Outros: "#8195A8",
+      TaxaOcorrencias: "#72B3FF",
+      TaxaConcientizacao: "#FFFFFF"
     };
   
     var monthly_options = {
       series: [
         {
-          name: "Tecnologia",
-          data: dataTecnologia,
+          name: "TaxaOcorrências",
+          data: taxaOcorrencias,
         },
         {
-          name: "Marketing",
-          data: dataMarketing,
-        },
-        {
-          name: "Comunicacao",
-          data: dataComunicacao,
-        },
-        {
-          name: "Outros",
-          data: dataOutros,
-        },
+          name: "TaxaConcientização",
+          data: taxaConcientizacao,
+        }
       ],
       chart: {
         height: 350,
@@ -261,7 +168,7 @@ let colors = {
           format: "dd/MM/yy",
         },
       },
-      colors: [colors["Tecnologia"], colors["Marketing"], colors["Comunicacao"], colors["Outros"]],
+      colors: [colors["TaxaOcorrencias"], colors["TaxaConcientizacao"]],
     };
   
     var monthly_chart = new ApexCharts(
@@ -271,6 +178,7 @@ let colors = {
     monthly_chart.render();
   }
   
+  monthlyChart();
   function generateRandomData(count) {
     var data = [];
     for (var i = 0; i < count; i++) {

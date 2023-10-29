@@ -3,9 +3,8 @@
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: auto;
     grid-template-areas:
-        "daily-record daily-record welcome welcome welcome"
-        "daily-record daily-record annual-record annual-record annual-record"
-        "single-cards single-cards monthly-record monthly-record monthly-record";
+        "monthly-record monthly-record welcome welcome welcome"
+        "daily-record daily-record welcome welcome welcome";
     gap: var(--dashboard-gap);
     align-items: start;
 }
@@ -142,4 +141,54 @@
 
 .hr-none{
     margin: 0px;
+}
+
+
+.input_blue{
+    border: none;
+    background: var(--color-light-blue);
+    border-radius: 100px;
+    color: var(--color-white);
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.input_dark_blue{
+    border: none;
+    background: var(--bg-primary);
+    border-radius: 100px;
+    color: var(--color-green);
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: min-content;
+    height: 40px;
+    margin-top: 10px;
+}
+
+/* SEARCH */
+
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.search{
+    width: 250px;
+    height: 45px;
+    background: none;
+    border: none;
+    padding-left: 20px;
+}
+
+.busca{
+    display: flex;
+    padding-inline: 20px;
+    border-radius: 7px;
+    background: var(--color-light-blue);
+}
+
+.search-icon:hover, .icon-micro:hover{
+    transform: scale(1.3);
 }
