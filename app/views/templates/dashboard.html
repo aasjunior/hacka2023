@@ -1,0 +1,21 @@
+{% include 'blades/header.html' %}
+<div class="wrapper row">
+    {{ sidebar() | safe }}
+    <main class="w-100">
+        <section class="dashboard m-30 mb-30">    
+            <section class="welcome-card row space-between vertical-center m-30">
+                <div class="col p-inline-20">
+                    <h2 class="lbl-white fs-20">Bem vinda, <em>Aline!</em></h2>
+                    <p class="subtitle mx-80">Aqui estão alguns dados gerais sobre seus pacientes.</p>
+                    <a class="welcome-card_link" href="#">Saiba mais sobre o Dashboard Overview &nbsp;&gt;</a>
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename='imgs/nya.jpg') }}" alt="Nya" class="nyaFig">
+                </div>
+            </section>
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% include 'blades/footer.html' %}

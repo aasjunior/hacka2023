@@ -1,0 +1,145 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "daily-record daily-record welcome welcome welcome"
+        "daily-record daily-record annual-record annual-record annual-record"
+        "single-cards single-cards monthly-record monthly-record monthly-record";
+    gap: var(--dashboard-gap);
+    align-items: start;
+}
+
+.single-cards{
+    margin-top: -320px;
+    grid-area: single-cards;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    grid-template-areas: 
+        "form-answers form-answers"
+        "patients-active patients-crisis"
+        "patients-new patients-crisis";
+    gap: var(--dashboard-gap);
+}
+
+.card {
+    background-color: var(--color-white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: var(--dashboard-gap);
+}
+
+.card .title {
+    font-size: 16px;
+    color: var(--bg-primary);
+}
+
+#daily-record {
+    position: relative;
+    height: 340px;
+    grid-area: daily-record;
+    padding: var(--dashboard-gap);
+}
+
+#annual-record {
+    height: 440px;
+    grid-area: annual-record;
+}
+
+#monthly-record {
+    grid-area: monthly-record;
+}
+
+#form-answers {
+    grid-area: form-answers;
+    position: relative;
+}
+
+#form-answers, #patients-active, #patients-new, #patients-crisis{
+    color: var(--bg-primary);
+}
+
+:is(#form-answers, #patients-active, #patients-new, #patients-crisis) .title {
+    font-weight: 700;
+}
+
+:is(#form-answers, #patients-active, #patients-new, #patients-crisis) .subtitle{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+:is(#form-answers, #patients-active, #patients-new, #patients-crisis) .amount {
+    font-weight: 700;
+    font-size: 44px;
+}
+
+#patients-crisis {
+    grid-area: patients-crisis;
+    height: 200px;
+}
+
+.accordion-content{
+    overflow: hidden; 
+    transition: max-height 0.3s ease-in-out;
+}
+
+#patients-active {
+    padding: 1rem;
+    grid-area: patients-active;
+}
+
+#patients-new {
+    grid-area: patients-new;
+}
+
+/*Card de Bem-vindo*/
+.welcome-card {
+    grid-area: welcome;
+    padding: 1rem 1rem;
+    color: var(--color-gray);
+
+    background: var(--welcome-card-bg);
+    border-radius: 10px;
+}
+
+.welcome-card .title {
+    font-size: 23px;
+    margin-bottom: 0.5rem;
+    color: inherit;
+}
+
+.welcome-card .subtitle {
+    line-height: 19px;
+    font-size: 13px;
+}
+
+.mx-80 {
+    max-width: 80%;
+}
+
+.subtitle:has(+ .welcome-card_link) {
+    margin-bottom: 2.5rem;
+}
+
+:is(.subtitle + .welcome-card_link) {
+    color: var(--color-green);
+}
+
+.welcome-card em {
+    font-style: normal;
+    color: var(--color-white);
+}
+
+.welcome-card_link {
+    font-size: 10px;
+    color: var(--color-white);
+}
+
+.welcome-card_link:hover {
+    color: var(--color-green);
+}
+
+.hr-none{
+    margin: 0px;
+}

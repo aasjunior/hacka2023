@@ -1,0 +1,144 @@
+/*Sidebar*/
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 24px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-item);
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.4px;
+}
+
+#sidebar-expanded {
+    width: 256px;
+}
+
+:is(#sidebar-expanded) .icon{
+    margin-right: 14px;
+}
+
+#sidebar-collapsed {
+    width: 70px;
+    align-items: center;
+}
+
+:is(.sidebar-expand, .sidebar-collapse) {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    border: 1px solid var(--sidebar-item);
+    border-radius: 8px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-item-light);
+}
+
+:is(.sidebar-expand:hover, .sidebar-collapse:hover) {
+    background-color: var(--sidebar-item-hover);
+    transform: scale(1.1);
+}
+
+:is(.sidebar-header, .sidebar-content, .sidebar-footer) {
+    width: 100%;
+}
+
+#sidebar-collapsed:is(.sidebar-header, .sidebar-content, .sidebar-footer),
+.sidebar-config,
+.sidebar-bottom {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.sidebar-expand {
+    position: absolute;
+    margin-right: -60px;
+}
+
+#sidebar-collapsed>.sidebar-content>.sidebar-title {
+    margin: -4px;
+}
+
+.sidebar-title {
+    margin: 2px 0;
+    font-size: 10px;
+}
+
+.user_image{
+    width: 35px;
+    height: 35px;
+    margin-right: 12px;
+    border-radius: 50%;
+    object-fit: cover;    
+    margin-bottom: 20px;
+}
+
+.logo_image{
+    position: relative;
+    width: 44px;
+    height: 44px;
+    margin-left: -6px;
+    border-radius: 50%;
+}
+
+.user_name {
+    margin: 2px 0;
+    font-size: 14px;
+    color: var(--sidebar-item-light);
+}
+
+.sidebar-line {
+    width: 100%;
+    height: 1px;
+    margin: 18px 0;
+    border: 1px solid var(--sidebar-item);
+}
+
+#sidebar-collapsed .sidebar-link {
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
+}
+
+
+#sidebar-collapsed .icon{
+    margin: 5px;
+}
+
+#sidebar-collapsed .user_image {
+    position: relative;
+    margin-left: -9px;
+}
+
+.sidebar-link {
+    height: 35px;
+    border-radius: 4px;
+}
+
+.sidebar-link:nth-child(2) {
+    margin-top: 10px;
+}
+
+.sidebar-link:hover {
+    background-color: var(--sidebar-item-hover);
+}
+
+.sidebar-foot {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.sidebar-link:has(#logoutIcon) {
+    margin: 0;
+    color: var(--sidebar-color-logout);
+}
+
+/*Sidebar - Fim*/
