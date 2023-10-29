@@ -1,10 +1,11 @@
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
     grid-template-areas:
-        "monthly-record monthly-record welcome welcome welcome"
-        "daily-record daily-record welcome welcome welcome";
+        "monthly-record monthly-record welcome welcome"
+        "monthly-record monthly-record panel-resolvidos panel-resolvidos"
+        "daily-record daily-record panel-pendentes panel-pendentes";
     gap: var(--dashboard-gap);
     align-items: start;
 }
@@ -16,10 +17,17 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 200px);
     grid-template-areas: 
-        "form-answers form-answers"
-        "patients-active patients-crisis"
-        "patients-new patients-crisis";
+        "panel-resolvidos panel-resolvidos"
+        "panel-pendentes panel-pendentes";
     gap: var(--dashboard-gap);
+}
+
+.panel-resolvidos{
+    grid-area: panel-resolvidos;    
+}
+
+.panel-pendentes{
+    grid-area: panel-pendentes;    
 }
 
 .card {
@@ -41,56 +49,10 @@
     padding: var(--dashboard-gap);
 }
 
-#annual-record {
-    height: 440px;
-    grid-area: annual-record;
-}
-
 #monthly-record {
     grid-area: monthly-record;
 }
 
-#form-answers {
-    grid-area: form-answers;
-    position: relative;
-}
-
-#form-answers, #patients-active, #patients-new, #patients-crisis{
-    color: var(--bg-primary);
-}
-
-:is(#form-answers, #patients-active, #patients-new, #patients-crisis) .title {
-    font-weight: 700;
-}
-
-:is(#form-answers, #patients-active, #patients-new, #patients-crisis) .subtitle{
-    font-size: 15px;
-    font-weight: 400;
-}
-
-:is(#form-answers, #patients-active, #patients-new, #patients-crisis) .amount {
-    font-weight: 700;
-    font-size: 44px;
-}
-
-#patients-crisis {
-    grid-area: patients-crisis;
-    height: 200px;
-}
-
-.accordion-content{
-    overflow: hidden; 
-    transition: max-height 0.3s ease-in-out;
-}
-
-#patients-active {
-    padding: 1rem;
-    grid-area: patients-active;
-}
-
-#patients-new {
-    grid-area: patients-new;
-}
 
 /*Card de Bem-vindo*/
 .welcome-card {
@@ -110,7 +72,7 @@
 
 .welcome-card .subtitle {
     line-height: 19px;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 .mx-80 {
@@ -131,7 +93,7 @@
 }
 
 .welcome-card_link {
-    font-size: 10px;
+    font-size: 13px;
     color: var(--color-white);
 }
 

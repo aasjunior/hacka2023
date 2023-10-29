@@ -14,13 +14,14 @@
             <section class="welcome-card row space-between vertical-center m-30">
                 <div class="col p-inline-20">
                     <h2 class="lbl-white fs-20">Bem vinda, <em>Aline!</em></h2>
-                    <p class="subtitle mx-80">Aqui estão alguns dados gerais sobre seus pacientes.</p>
+                    <p class="subtitle mx-80">Aqui estão alguns dados sobre suas medidas afirmativas.</p>
                     <a class="welcome-card_link" href="#">Saiba mais sobre o Dashboard Overview &nbsp;&gt;</a>
                 </div>
                 <div>
-                    <img src="{{ url_for('static', filename='imgs/nya.jpg') }}" alt="Nya" class="nyaFig">
+                    <img src="{{ url_for('static', filename='imgs/nya.png') }}" alt="Nya" class="nyaFig">
                 </div>
             </section>
+            
             <section id="monthly-record" class="card">
                 <input type="hidden" id="taxaOcorrencias" value="{{ mensal.taxa_ocorrencias|tojson }}">
                 <input type="hidden" id="taxaConcientizacao" value="{{ mensal.taxa_concientizacao|tojson }}">
@@ -39,9 +40,43 @@
                 <h2 class="title">Indice Mensal por Departamento</h2>
                 <div id="g-daily" class="mt-30 relative"></div>
             </section>
+            <section class="card">
+                <div class="panel_resolvidas">
+                    <div class="row space-between vertical-center">
+                        <hgroup class="horizontal-start">
+                            <h2 class="title">Total de Departamentos Concientizados</h2>
+                            <h3 class="subtitle">neste mês</h3>
+                        </hgroup>
+                        <p class="amount">3</p>
+                    </div>
+                    <div class="row center space-around">
+                        <p>65%</p>
+                        <div class="progress-bar w-80">
+                            <div class="progress" style="width:65"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="card">
+                <div class="panel_pendentes">
+                    <div class="row space-between vertical-center">
+                        <hgroup class="horizontal-start">
+                            <h2 class="title">Departamentos Pendentes</h2>
+                            <h3 class="subtitle">ainda neste mês</h3>
+                        </hgroup>
+                        <p class="amount">5</p>
+                    </div>
+                    <div class="row center space-around">
+                        <p>35%</p>
+                        <div class="progress-bar w-80">
+                            <div class="progress" style="width:35"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
 </div>
 
-<script src="{{ url_for('static', filename='js/dashboard.js') }}">monthlyChart()</script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 {% include 'blades/footer.html' %}

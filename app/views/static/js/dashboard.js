@@ -1,7 +1,7 @@
 // Cores para cada label
 let colors = {
     Tecnologia: "#526BDB",
-    Marketing: "72B3FF",
+    Marketing: "#72B3FF",
     Comunicacao: "#3FBDF1",
     Outros: "#8195A8",
     TaxaOcorrencias: "#72B3FF",
@@ -29,25 +29,7 @@ let colors = {
     var taxaConcientizacao = parseInt(document.getElementById("taxaConcientizacao").value) ?? null;
     var mesAtual = new Date().getMonth() ?? null;
   }
-    /*
-    var datatecnologia = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 12];
-    var dataBom = [10, 5, 3, 8, 6, 4, 11, 9, 7, 2, 12];
-    var dataSemResposta = [4, 2, 1, 6, 3, 5, 2, 4, 1, 6, 5];
-  
-    var datatecnologiaMensal =
-      JSON.parse(document.getElementById("datatecnologiaMensal").value) ?? null;
-    var dataBomMensal =
-      JSON.parse(document.getElementById("dataBomMensal").value) ?? null;
-    var dataSemRespostaMensal =
-      JSON.parse(document.getElementById("dataSemRespostaMensal").value) ?? null;
-  
-    dailyRecord(tecnologia, bom, sem_resposta);
-    annualRecord(datatecnologia, dataBom, dataSemResposta);
-    // monthlyChart(datatecnologiaMensal, dataBomMensal, dataSemRespostaMensal)
-    monthlyChart();
-  }
-  
-  */
+
   function dailyRecord(tecnologia, marketing, Comunicação, outros) {
     const options = {
       chart: {
@@ -126,9 +108,9 @@ let colors = {
   }
 
   function monthlyChart() {
-    var taxaOcorrencias = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 12, 11];
-    var taxaConcientizacao = [10, 5, 3, 8, 6, 4, 11, 9, 7, 2, 12, 1];
-    var dataTime = generateDateRange("2023-10-01", "2023-10-28");
+    var taxaOcorrencias = [2, 6, 8, 5, 10, 9, 7, 4, 3, 1, 4, 3, 2, 7, 3, 2, 5];
+    var taxaConcientizacao = [1, 5, 3, 4, 6, 4, 7, 1, 2, 0, 1, 3, 1, 4, 2, 2, 3];
+    var dataTime = generateDateRange("2023-10-11", "2023-10-29");
   
     var colors = {
       TaxaOcorrencias: "#72B3FF",
@@ -155,9 +137,6 @@ let colors = {
       },
       dataLabels: {
         enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
       },
       xaxis: {
         type: "datetime",

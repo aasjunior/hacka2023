@@ -6,7 +6,7 @@
     --color-white: #fff;
     --color-black: #000000;
     --color-gray: #CED5DC;
-    --color-green: #71DDB1;
+    --color-green: #49a7e9;
     --color-blue: #3FBDF1;
     --color-light-blue: rgba(255, 255, 255, 0.1);
     --color-red: #DD0000;
@@ -17,7 +17,7 @@
     --color-steel-blue: #30586e;
     --color-light-steel-blue: #93B0C8;
     --color-cadet-blue: #6C95A0;
-    --color-medium-turquoise: #45C4B0;
+    --color-medium-turquoise: #5ca1f6;
 
     --sidebar-bg: #161A23;
     --sidebar-item:  rgba(255, 255, 255, 0.5);
@@ -25,7 +25,7 @@
     --sidebar-item-hover: #2D2F39;
     --sidebar-color-logout: #CC8889;
 
-    --welcome-card-bg: linear-gradient(270deg, #45C4B0 -9.55%, #284F63 50%);
+    --welcome-card-bg: linear-gradient(270deg, #72B3FF -9.55%, #284F63 50%);
     --access-card-bg: linear-gradient(270deg, #45C4B0 -9.55%, #19626B 20.23%, #04334A 50%);
 
     --dashboard-gap: 20px;
@@ -81,30 +81,6 @@ em{
     font-weight: 400;
     color: var(--color-white);
 }
-
-.modal-wrapper{
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    max-width: 100vw;
-    background-color: rgba(184, 184, 184, 0.5);
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-.modal{
-    width: 550px;
-    height: 240px;
-    background-color: var(--bg-primary);
-    border-radius: 30px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 .btn-danger{
     width: 125px;
     background: var(--color-red);
@@ -131,9 +107,9 @@ em{
 
 
 /*figures*/
-.meditateFig{
+.nyaFig{
     position: relative;
-    height: 170px;
+    height: 180px;
 }
 
 /*Icones*/
@@ -233,15 +209,6 @@ em{
     width: 75px;
 }
 
-.modalIcon{
-    width: 50px;
-    min-width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-position: center center;
-    background-size: 24px 24px;
-}
-
 .agenda .bellIcon{
     width: 35px;
     height: 35px;
@@ -277,28 +244,6 @@ em{
 
 .dashboard .cautionIcon{
     background-color: var(--color-dark-teal);
-}
-
-.patient-card_dash .icon{
-    width: 50px;
-    min-width: 50px;
-    height: 50px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 25px 25px;
-    border-radius: 50%;
-}
-
-.patient-card_dash .feetIcon{
-    background-color: var(--color-sea-green);
-}
-
-.patient-card_dash .heartIcon{
-    background-color: var(--color-cadet-blue);
-}
-
-.patient-card_dash .calIcon{
-    background-color: var(--color-teal);
 }
 
 
